@@ -40,7 +40,7 @@ class FormatButton extends StatelessWidget {
             padding: EdgeInsets.zero,
             child: child,
           )
-        : InkWell(
+        : GestureDetector(
             onTap: () => onTap(_nextFormat()),
             child: child,
           );
