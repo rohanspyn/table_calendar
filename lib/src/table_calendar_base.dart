@@ -29,7 +29,7 @@ class TableCalendarBase extends StatefulWidget {
   final StartingDayOfWeek startingDayOfWeek;
   final AvailableGestures availableGestures;
   final SimpleSwipeConfig simpleSwipeConfig;
-  final Map<CalendarFormat, String> availableCalendarFormats;
+  final Map<CalendarFormat, IconData> availableCalendarFormats;
   final SwipeCallback? onVerticalSwipe;
   final void Function(DateTime focusedDay)? onPageChanged;
   final void Function(PageController pageController)? onCalendarCreated;
@@ -61,9 +61,8 @@ class TableCalendarBase extends StatefulWidget {
       swipeDetectionBehavior: SwipeDetectionBehavior.continuousDistinct,
     ),
     this.availableCalendarFormats = const {
-      CalendarFormat.month: 'Month',
-      CalendarFormat.twoWeeks: '2 weeks',
-      CalendarFormat.week: 'Week',
+      CalendarFormat.month: Icons.keyboard_arrow_down_rounded,
+      CalendarFormat.week: Icons.keyboard_arrow_up_rounded,
     },
     this.onVerticalSwipe,
     this.onPageChanged,

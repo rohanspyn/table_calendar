@@ -10,18 +10,15 @@ import '../shared/utils.dart' show CalendarFormat;
 class FormatButton extends StatelessWidget {
   final CalendarFormat calendarFormat;
   final ValueChanged<CalendarFormat> onTap;
-  final TextStyle textStyle;
-  final BoxDecoration decoration;
+
   final EdgeInsets padding;
   final bool showsNextFormat;
-  final Map<CalendarFormat, String> availableCalendarFormats;
+  final Map<CalendarFormat, IconData> availableCalendarFormats;
 
   const FormatButton({
     Key? key,
     required this.calendarFormat,
     required this.onTap,
-    required this.textStyle,
-    required this.decoration,
     required this.padding,
     required this.showsNextFormat,
     required this.availableCalendarFormats,
@@ -30,12 +27,8 @@ class FormatButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final child = Container(
-      decoration: decoration,
-      padding: padding,
-      child: Text(
-        _formatButtonText,
-        style: textStyle,
-      ),
+      child: Icon(_formatButtonContent,
+          size: 24, color: Color.fromRGBO(121, 152, 175, 1)),
     );
 
     final platform = Theme.of(context).platform;
@@ -48,14 +41,12 @@ class FormatButton extends StatelessWidget {
             child: child,
           )
         : InkWell(
-            borderRadius:
-                decoration.borderRadius?.resolve(Directionality.of(context)),
             onTap: () => onTap(_nextFormat()),
             child: child,
           );
   }
 
-  String get _formatButtonText => showsNextFormat
+  IconData get _formatButtonContent => showsNextFormat
       ? availableCalendarFormats[_nextFormat()]!
       : availableCalendarFormats[calendarFormat]!;
 

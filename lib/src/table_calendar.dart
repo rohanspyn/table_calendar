@@ -3,6 +3,7 @@
 
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
@@ -80,7 +81,7 @@ class TableCalendar<T> extends StatefulWidget {
   ///   CalendarFormat.week: 'Week',
   /// }
   /// ```
-  final Map<CalendarFormat, String> availableCalendarFormats;
+  final Map<CalendarFormat, IconData> availableCalendarFormats;
 
   /// Determines the visibility of calendar header.
   final bool headerVisible;
@@ -214,9 +215,8 @@ class TableCalendar<T> extends StatefulWidget {
     this.weekendDays = const [DateTime.saturday, DateTime.sunday],
     this.calendarFormat = CalendarFormat.month,
     this.availableCalendarFormats = const {
-      CalendarFormat.month: 'Month',
-      CalendarFormat.twoWeeks: '2 weeks',
-      CalendarFormat.week: 'Week',
+      CalendarFormat.month: Icons.keyboard_arrow_down_rounded,
+      CalendarFormat.week: Icons.keyboard_arrow_up_rounded,
     },
     this.headerVisible = true,
     this.daysOfWeekVisible = true,

@@ -21,7 +21,7 @@ Widget setupTestWidget({
   VoidCallback? onHeaderTap,
   VoidCallback? onHeaderLongPress,
   Function(CalendarFormat)? onFormatButtonTap,
-  Map<CalendarFormat, String> availableCalendarFormats = calendarFormatMap,
+  Map<CalendarFormat, IconData> availableCalendarFormats = calendarFormatMap,
 }) {
   return Directionality(
     textDirection: TextDirection.ltr,
@@ -176,7 +176,9 @@ void main() {
     (tester) async {
       await tester.pumpWidget(
         setupTestWidget(
-          availableCalendarFormats: const {CalendarFormat.month: 'Month'},
+          availableCalendarFormats: const {
+            CalendarFormat.month: Icons.keyboard_arrow_down_rounded
+          },
         ),
       );
 
